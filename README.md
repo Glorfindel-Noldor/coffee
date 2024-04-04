@@ -1,6 +1,6 @@
 Coffee list!
 
-    In this app you can add your favorite coffees and 
+In this app you can add your favorite coffees and 
 some descriptions of it like things that go into making them.
 
 to get started run the following commands:
