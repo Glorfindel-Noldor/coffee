@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useTransition } from "react";
 import { Outlet } from "react-router-dom";
+import NavBar from "./navbar";
 
 function Home(){
     const api = 'http://localhost:3001/coffee'
@@ -22,17 +23,8 @@ function Home(){
 
     return(
         <>
+          <NavBar/>
           <Outlet context={{coffee, api, setCoffee}}/>
-          <small>{
-                coffee.map((item)=>{
-                    return (
-                    <div key={item.id}>
-                        <p>{item.name}</p>
-                        <small>{item.description}</small>
-                    </div>
-                    )
-                })
-            }</small>
         </>
     )
 }
