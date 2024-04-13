@@ -2,6 +2,7 @@ import Home from "./pages/home";
 import Form from "./pages/form";
 import NavBar from "./pages/navbar";
 import Search from "./pages/search";
+import Delete from "./pages/delete";
 
 const routeConfig = [
     {   
@@ -24,6 +25,11 @@ const routeConfig = [
                 path: '/search',
                 exact: true,
                 element: <Search/>
+            },
+            {
+                path: '/delete',
+                exact: true,
+                element: <Delete/>
             }
         ]
     }

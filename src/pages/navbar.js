@@ -9,6 +9,7 @@ function NavBar(){
             {/* <NavLink to='/' > home</NavLink> */}
             <NavLink to='/form' > form</NavLink>
             <NavLink to='/search' > search</NavLink>
+            <NavLink to='/delete' > delete</NavLink>
         </nav>
     )
 }

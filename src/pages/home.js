@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useTransition } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "./navbar";
 
@@ -17,14 +17,17 @@ function Home(){
         })
         .then((data)=>(setCoffee(data)))
         .catch((error)=>(console.log(error)))
-        console.log(`fetch fetched`)
+        console.log(`fetch ran`)
     },[])
-
 
     return(
         <>
-          <NavBar/>
-          <Outlet context={{coffee, api, setCoffee}}/>
+            <NavBar/>
+            <Outlet context={{
+                coffee,
+                api, 
+                setCoffee
+            }}/>
         </>
     )
 }

@@ -1,40 +1,11 @@
 {
   "coffee": [
     {
-      "id": "1",
-      "name": "americano",
+      "id": "21ca",
+      "name": "Americano",
       "description": "black coffee",
+      "origin": "italy",
       "ingredients": "arabic beans"
-    },
-    {
-      "id": "87ad",
-      "name": "dafs",
-      "description": "dfasdf"
-    },
-    {
-      "id": "7bc9",
-      "name": "asdfasdf",
-      "description": "asdfasdfasdf"
-    },
-    {
-      "id": "988a",
-      "name": "dfasdf",
-      "description": "asdfasdfasdf"
-    },
-    {
-      "id": "c7f5",
-      "name": "cup",
-      "description": "water"
-    },
-    {
-      "id": "1892",
-      "name": "water",
-      "description": "water"
-    },
-    {
-      "id": "1978",
-      "name": "green coff",
-      "description": "it smells funny"
     }
   ]
 }

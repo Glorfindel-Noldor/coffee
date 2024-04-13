@@ -3,19 +3,16 @@ import { useOutletContext } from "react-router-dom";
 
 function Search(){
     const { coffee } = useOutletContext();
-
-
     const [search, setSearch] = useState('');
-    const [filteredCoffee, setFilteredCoffee] = useState(coffee);
 
     const handleSearchChange = (e) => {
         const searchTerm = e.target.value.toLowerCase();
         setSearch(searchTerm);
-        const filtered = coffee.filter((item) =>
-            item.name.toLowerCase().includes(searchTerm)
-        );
-        setFilteredCoffee(filtered);
     };
+
+    const filteredCoffeeItems = coffee.filter((item) =>
+    item.name.toLowerCase().includes(search)
+    );
 
     return(
         <>
@@ -25,8 +22,10 @@ function Search(){
                 type="text"
                 placeholder="Search"
             />
-            {filteredCoffee.map((item) => (
-                <p key={item.id}>{item.name}</p>
+            {filteredCoffeeItems.map((item) => (
+                <div key={item.id}>
+                    <p >{item.name} </p>
+                </div>
             ))}
         </>
     );
