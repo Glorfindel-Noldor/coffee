@@ -3,31 +3,32 @@ import { useOutletContext } from "react-router-dom";
 
 function Form(){
     const { api, coffee, setCoffee } = useOutletContext();
-    const [stateName, setStateName] = useState('')
-    const [stateDescription, setStateDescription] = useState('')
-    const [stateOrigin, setStateOrigin] = useState('')
-    const [stateIngredients, setStateIngredients] =useState('')
+    const [formData, setFormData] = useState({
+        stateName: '',
+        stateDescription: '',
+        stateIngredients: '',
+        stateOrigin: '',
+    })
+    const {stateName, stateDescription, stateIngredients, stateOrigin } = formData
 
     const InputChange= (e)=>{
         const {name, value} = e.target
-        if (name === 'name' && value.length < 11) {
-            setStateName(value);
-        } else if (name === 'description') {
-            setStateDescription(value);
-        } else if(name === 'origin'){
-            setStateOrigin(value)
-        } else if (name === 'ingredients'){
-            setStateIngredients(value)
-        }
+        setFormData(prevState => ({
+            ...prevState,
+            [name]:value
+        }))
     }
 
     const FormSubmit= (e)=>{
         e.preventDefault();
 
-    if (!stateName || stateName.length < 2 || !stateDescription || stateDescription.length < 2 || !stateOrigin || stateOrigin.length < 2 || !stateIngredients || stateIngredients.length < 2) {
-    alert('Please fill in all fields with at least two characters');
-    return;
-}
+    if(
+        !stateName || stateName.length < 2 || !stateDescription || stateDescription.length < 2 ||
+        !stateOrigin || stateOrigin.length < 2 || !stateIngredients || stateIngredients.length < 2
+        ){
+        alert('Please fill in all fields with at least two characters');
+        return null;
+    }
 
 
         const newCoffee = {
@@ -53,19 +54,23 @@ function Form(){
         })
         .then((data)=>(setCoffee([data, ...coffee])))
         .catch((error)=>(console.log(error)))
-        setStateDescription('');
-        setStateName('');
-        setStateOrigin('');
-        setStateIngredients('');
+        setFormData({
+            stateName: '',
+            stateDescription: '',
+            stateIngredients: '',
+            stateOrigin: '',
+        })
+        
+        console.log(`POST`)
     }
 
     return(
         <>
             <form onSubmit={FormSubmit}>
-                <input value={stateName} onChange={InputChange} type="text" placeholder="drink name" name="name" /><br/>
-                <input value={stateDescription} onChange={InputChange} type="text" placeholder="description" name="description" /><br/>
-                <input value={stateOrigin} onChange={InputChange} type="text" placeholder="country origin" name="origin" /> <br/>
-                <input value={stateIngredients} onChange={InputChange} type="text" placeholder="ingredients" name="ingredients"/> <br/>
+                <input value={stateName} onChange={InputChange} type="text" placeholder="drink name" name="stateName" /><br/>
+                <input value={stateDescription} onChange={InputChange} type="text" placeholder="description" name="stateDescription" /><br/>
+                <input value={stateOrigin} onChange={InputChange} type="text" placeholder="country origin" name="stateOrigin" /> <br/>
+                <input value={stateIngredients} onChange={InputChange} type="text" placeholder="ingredients" name="stateIngredients"/> <br/>
                 <input value='submit' type="submit" />
             </form>
         </>

@@ -1,11 +1,3 @@
 {
-  "coffee": [
-    {
-      "id": "21ca",
-      "name": "Americano",
-      "description": "black coffee",
-      "origin": "italy",
-      "ingredients": "arabic beans"
-    }
-  ]
+  "coffee": []
 }

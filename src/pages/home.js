@@ -17,7 +17,7 @@ function Home(){
         })
         .then((data)=>(setCoffee(data)))
         .catch((error)=>(console.log(error)))
-        console.log(`fetch ran`)
+        console.log(`GET`)
     },[])
 
     return(

@@ -19,7 +19,7 @@ function Delete(){
             setCoffee(itemDeleted)
         }
         )
-
+        console.log(`DELETE`)
     }
 
     return(
