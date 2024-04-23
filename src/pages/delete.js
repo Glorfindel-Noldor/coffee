@@ -4,18 +4,18 @@ import { useOutletContext } from "react-router-dom";
 function Delete(){
     const { setCoffee, coffee, api }= useOutletContext()
 
-    const handleDelete= (remove)=>{
+    const handleDelete= (idtoDelete)=>{
         const del = {
             method: "DELETE",
         } 
-        fetch(`${api}/${remove}`,del)
+        fetch(`${api}/${idtoDelete}`,del)
         .then(res =>{
             if(res.ok){
                 res.json()
             }else alert(`error:\n${res}`)
         })
         .then( () =>{
-            const itemDeleted = coffee.filter(item => item.id !== remove)
+            const itemDeleted = coffee.filter(item => item.id !== idtoDelete)
             setCoffee(itemDeleted)
         }
         )

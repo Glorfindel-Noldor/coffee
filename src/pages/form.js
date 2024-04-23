@@ -13,6 +13,7 @@ function Form(){
 
     const InputChange= (e)=>{
         const {name, value} = e.target
+        
         setFormData(prevState => ({
             ...prevState,
             [name]:value

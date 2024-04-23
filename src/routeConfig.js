@@ -3,18 +3,14 @@ import Form from "./pages/form";
 import NavBar from "./pages/navbar";
 import Search from "./pages/search";
 import Delete from "./pages/delete";
+import ErrorPage from "./pages/errorPage";
 
 const routeConfig = [
     {   
         path: '/',
         exact: true, 
         element: <Home/>,
-        errorElement:(
-            <div>
-                <h1>broken page</h1>
-                <NavBar/>
-            </div>
-        ),
+        errorElement: <ErrorPage />,
         children:[
             {
                 path:'/form',
